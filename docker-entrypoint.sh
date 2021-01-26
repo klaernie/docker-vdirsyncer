@@ -2,14 +2,14 @@
 
 DEBUG=""
 case "$1" in
-	-v:
-	--verbosity:
+	-v)
+	--verbosity)
 		DEBUG="$1 $2"
 		shift
 		shift
 		;;
-	-v*:
-	--verbosity=*:
+	-v*)
+	--verbosity=*)
 		DEBUG="$1"
 		;;
 esac
