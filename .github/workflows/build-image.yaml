@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'Dockerfile'
+      - 'docker-entrypoint.sh'
     branches:
     - main
   pull_request:
