@@ -13,9 +13,11 @@ case "$1" in
 esac
 
 
+# shellcheck disable=SC2086
 /usr/local/bin/vdirsyncer $DEBUG discover "$@" || exit 1
 until false
 do
+   # shellcheck disable=SC2086
    /usr/local/bin/vdirsyncer $DEBUG sync "$@"
    sleep "${VDIRSYNCER_INTERVAL:-900}"
 done
