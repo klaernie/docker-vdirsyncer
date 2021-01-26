@@ -1,12 +1,9 @@
-FROM ubuntu:16.04
+FROM python:3.8
 LABEL maintainer="Andre Klaerner <kandre@ak-online.be>"
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8
 RUN useradd -m -s /bin/bash vds
-RUN apt-get update; \
-    apt-get upgrade -y; \
-    apt-get install -y libxml2 libxslt1.1 zlib1g python3-pip; \
-    pip3 install -U pip; \
-    pip3 install vdirsyncer
+RUN pip3 install -U pip; \
+    pip3 install vdirsyncer requests-oauthlib
 USER vds
 RUN mkdir -p /home/vds/.config/vdirsyncer/
 COPY ./docker-entrypoint.sh /
