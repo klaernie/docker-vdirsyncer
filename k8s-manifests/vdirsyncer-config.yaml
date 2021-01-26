@@ -1,0 +1,59 @@
+apiVersion: v1
+data:
+  config: |
+    [general]
+    status_path = "/tmp/vdirsyncer-status/"
+
+    [storage Mirror]
+    type = "singlefile"
+    path = "/home/vds/nfs/calendars/%s.ics"
+
+    [storage iCloud_Andre]
+    type = "caldav"
+    url = "https://caldav.icloud.com/"
+    username = "email-that-nobody-has@ak-online.be"
+    password = "not really my password"
+    read_only = true
+    item_types = ["VEVENT"]
+    start_date = "datetime.now() - timedelta(days=1)"
+    end_date = "datetime.now() + timedelta(days=8)"
+
+    [storage gmail_Andre]
+    type="google_calendar"
+    token_file = "/home/vds/nfs/gmail-tokens"
+    client_id = "generate your own"
+    client_secret = "this one you have to pry from my cold dead hands"
+    read_only = true
+    item_types = ["VEVENT"]
+    start_date = "datetime.now() - timedelta(days=1)"
+    end_date = "datetime.now() + timedelta(days=8)"
+
+    [storage O365_Andre]
+    type = "http"
+    url = "https://outlook.office365.com/owa/calendar/......."
+    read_only = true
+
+    [pair gmail_to_MagicMirror]
+    a = "gmail_Andre"
+    b = "Mirror"
+    collections = [ ["Andre Private", "andre.klaerner@gmail.com","AndrePrivate"] ]
+    conflict_resolution = "a wins"
+
+    [pair O365_Andre_to_MM]
+    a = "O365_Andre"
+    b = "Mirror"
+    collections = [["Work",null,"O365_Andre"]]
+    metadata = ["displayname", "color"]
+    conflict_resolution = "a wins"
+
+    [pair iCloud_to_MagicMirror]
+    a = "iCloud_Andre"
+    b = "Mirror"
+    collections = [["AnjaPrivate", "another anonymized ID","AnjaPrivate"]]
+    metadata = ["displayname", "color"]
+    conflict_resolution = "a wins"
+
+kind: ConfigMap
+metadata:
+  name: vdirsyncer
+  namespace: magicmirror
