@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-LABEL maintainer="Thomas Kärgel kaergel at b1-systems.de"
+LABEL maintainer="Andre Klaerner <kandre@ak-online.be>"
 ENV REFRESHED_AT=20170408 LC_ALL=C.UTF-8 LANG=C.UTF-8
 RUN useradd -m -s /bin/bash vds
 RUN apt-get update; \
