@@ -33,8 +33,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          registry: ghcr.io
-          tags: klaernie/vdirsyncer:latest
+          tags: ghcr.io/klaernie/vdirsyncer:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
