@@ -3,7 +3,7 @@ A docker container which syncs your CalDAV/CardDAV calendars/addressbooks period
 
 This docker app uses [pimutils/vdirsyncer](https://vdirsyncer.pimutils.org/) to synchronize your CalDAV/CardDAV calendars/addressbooks between two servers.
 
-# Getting started
+## Getting started
 
 1. create a vdirsyncer configuration file. See file [_config.example_](https://github.com/pimutils/vdirsyncer/blob/master/config.example) and [vdirsyncer docs](https://vdirsyncer.pimutils.org/)
 2. adapt docker-compose.yml to use your configuration file
@@ -11,7 +11,7 @@ This docker app uses [pimutils/vdirsyncer](https://vdirsyncer.pimutils.org/) to 
 
 Be happy! The container will synchronize your calendars/addressbooks every 15 minutes.
 
-# docker-compose example
+## docker-compose example
 
 ```yaml
 version: '3'
