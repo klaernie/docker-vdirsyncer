@@ -1,6 +1,5 @@
 # docker-vdirsyncer
 A docker container which syncs your CalDAV/CardDAV calendars/addressbooks periodically.
-
 This docker app uses [pimutils/vdirsyncer](https://vdirsyncer.pimutils.org/) to synchronize your CalDAV/CardDAV calendars/addressbooks between two servers.
 
 ## Getting started
@@ -34,3 +33,12 @@ services:
       - ./your_config_file:/home/vds/.config/vdirsyncer/config
     restart: always
 ```
+
+## manual example
+
+if you want to use this image for isolating on your local machine, here is the command I used to test it:
+```sh
+docker run --mount type=bind,src=$HOME/.config/vdirsyncer,target=/home/vds/.config/vdirsyncer --mount type=bind,src=$HOME/MagicMirror/modules/calendars,target=$HOME/MagicMirror/modules/calendars -ti ghcr.io/klaernie/vdirsyncer
+```
+
+please note, that I am deliberately using the same path inside and outside the container for the calendar storage, as my config refers to it by it's full path.
