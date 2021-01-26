@@ -4,5 +4,5 @@
 until false
 do
    /usr/local/bin/vdirsyncer sync
-   sleep 900
+   sleep ${VDIRSYNCER_INTERVAL:-900}
 done
