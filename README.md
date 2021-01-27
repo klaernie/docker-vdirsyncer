@@ -28,7 +28,7 @@ version: '3'
 services:
 
   worker:
-    image: kaergel/vdirsyncer
+    image: ghcr.io/klaernie/vdirsyncer
     volumes:
       - ./your_config_file:/home/vds/.config/vdirsyncer/config
     restart: always
