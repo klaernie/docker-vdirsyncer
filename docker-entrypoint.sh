@@ -19,7 +19,8 @@ until false
 do
    # shellcheck disable=SC2086
    /usr/local/bin/vdirsyncer $DEBUG sync "$@"
-   test -d /home/vds/calendars && chmod a+r /home/vds/calendars
+
+   test -x /home/vds/post-sync-hook.sh && bash /home/vds/post-sync-hook.sh
 
    sleep "${VDIRSYNCER_INTERVAL:-900}"
 done
