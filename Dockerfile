@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.11
 LABEL maintainer="Andre Klaerner <kandre@ak-online.be>"
 ENV LC_ALL=C.UTF-8 LANG=C.UTF-8
 RUN useradd -m -s /bin/bash vds

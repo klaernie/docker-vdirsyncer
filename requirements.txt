@@ -1,2 +1,2 @@
-vdirsyncer == 0.16.8
-requests-oauthlib
+vdirsyncer == 0.19.2
+vdirsyncer[google]
