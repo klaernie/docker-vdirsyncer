@@ -11,7 +11,7 @@ Be happy! The container will synchronize your calendars/addressbooks.
 
 ## Kubernetes example
 
-I (klaernie) forked this repo to not only update it and improve it, but mainly to deploy it next to my [kubernetes hosted magic-mirror](https://github.com/bastilimbach/docker-MagicMirror/tree/master/doc/examples/k8s/klaernie).
+I (klaernie) forked this repository to not only update it and improve it, but mainly to deploy it next to my [kubernetes hosted magic-mirror](https://github.com/bastilimbach/docker-MagicMirror/tree/master/doc/examples/k8s/klaernie).
 
 Hence you'll find my configuration in k8s-manifests.
 Adjust the namespace to your liking, and refer to my docker-MagicMirror setup for all the missing pieces.
