@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: get version of vdirsyncer from requirements.txt
         run: |
-          VERSION=$( perl -ne 'print "$1\n" if m/^\s*vdirsyncer\s==\s*([\d.-]+)\s*$/;' requirements.txt
+          VERSION=$( perl -ne 'print "$1\n" if m/^\s*vdirsyncer\s==\s*([\d.-]+)\s*$/;' requirements.txt )
           echo "VDS_VERSION=$VERSION" >> "$GITHUB_ENV"
       -
         name: Set up QEMU
