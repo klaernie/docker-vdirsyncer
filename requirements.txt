@@ -1,0 +1,2 @@
+vdirsyncer == 0.16.8
+requests-oauthlib
