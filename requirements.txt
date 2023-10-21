@@ -1,2 +1,2 @@
 vdirsyncer == 0.19.2
-python-aiohttp-oauthlib
+aiohttp-oauthlib
