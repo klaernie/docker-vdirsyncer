@@ -40,7 +40,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/klaernie/vdirsyncer:latest
-            ghcr.io/klaernie/vdirsyncer:$VDS_VERSION
+            ghcr.io/klaernie/vdirsyncer:${{ env.VDS_VERSION }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
