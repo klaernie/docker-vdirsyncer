@@ -6,6 +6,7 @@ on:
       - 'Dockerfile'
       - 'docker-entrypoint.sh'
       - '.github/workflows/build-image.yaml'
+      - 'requirements.txt'
     branches:
     - main
   pull_request:
@@ -14,6 +15,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: get version of vdirsyncer from requirements.txt
+        run: |
+          VERSION=$( perl -ne 'print "$1\n" if m/^\s*vdirsyncer\s==\s*([\d.-]+)\s*$/;' requirements.txt
+          echo "VDS_VERSION=$VERSION" >> "$GITHUB_ENV"
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -33,7 +38,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ghcr.io/klaernie/vdirsyncer:latest
+          tags:
+            - ghcr.io/klaernie/vdirsyncer:latest
+            - ghcr.io/klaernie/vdirsyncer:$VDS_VERSION
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
