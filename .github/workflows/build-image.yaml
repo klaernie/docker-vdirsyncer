@@ -9,6 +9,7 @@ on:
       - 'requirements.txt'
     branches:
     - main
+    - 0.16.8
   pull_request:
 
 jobs:
