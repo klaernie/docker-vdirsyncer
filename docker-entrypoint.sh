@@ -14,7 +14,12 @@ esac
 
 
 # shellcheck disable=SC2086
-/usr/local/bin/vdirsyncer $DEBUG discover "$@" || exit 1
+if ! /usr/local/bin/vdirsyncer $DEBUG discover "$@"; then
+	echo "discovery failed - sleeping 120s for you to maybe fix it"
+	sleep 120
+	exit 1
+fi
+
 until false
 do
    # shellcheck disable=SC2086
