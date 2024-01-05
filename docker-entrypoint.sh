@@ -9,6 +9,7 @@ case "$1" in
 		;;
 	-v*|--verbosity=*)
 		DEBUG="$1"
+  		shift
 		;;
 esac
 
@@ -25,7 +26,10 @@ do
    # shellcheck disable=SC2086
    /usr/local/bin/vdirsyncer $DEBUG sync "$@"
 
-   test -x /home/vds/post-sync-hook.sh && bash /home/vds/post-sync-hook.sh
+   if test -x /home/vds/post-sync-hook.sh ; then
+   	echo "running post-sync-hook..."
+   	bash /home/vds/post-sync-hook.sh
+    fi
 
    sleep "${VDIRSYNCER_INTERVAL:-900}"
 done
